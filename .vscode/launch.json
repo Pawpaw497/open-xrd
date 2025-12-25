@@ -15,6 +15,18 @@
             "type": "debugpy",
             "request": "launch",
             "module": "app.main"
-        }
+        },
+{
+    "name": "Python: 自动解析模块并调试",
+    "type": "python",
+    "request": "launch",
+    "program": "-c", 
+    "args": [
+        "import runpy, os; rel = os.path.relpath(r'${file}', r'${workspaceFolder}'); mod = rel.replace(os.sep, '.')[:-3]; runpy.run_module(mod, run_name='__main__')"
+    ],
+    "cwd": "${workspaceFolder}",
+    "console": "integratedTerminal"
+}
+
     ]
 }
